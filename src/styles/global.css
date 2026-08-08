@@ -42,10 +42,29 @@ h2 {
 a {
   color: var(--text);
   text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition:
+    color 0.15s ease,
+    text-decoration-thickness 0.15s ease,
+    text-underline-offset 0.15s ease,
+    transform 0.15s ease;
 }
 
 a:hover {
   color: var(--muted);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+/* Nudge on short standalone links */
+.lines a,
+.back {
+  display: inline-block;
+}
+
+.lines a:hover,
+.back:hover {
+  transform: translateX(3px);
 }
 
 hr {
@@ -79,15 +98,6 @@ mark {
 /* Homepage line list */
 .lines p {
   margin: 0 0 1.125rem;
-}
-
-.lines .mark {
-  margin-top: 0.5rem;
-}
-
-.lines .mark img {
-  height: 1.5rem;
-  width: auto;
 }
 
 /* Detail pages */
