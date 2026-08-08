@@ -108,8 +108,8 @@ mark {
 }
 
 .page-logo {
-  height: 2.5rem;
+  height: 4.5rem;
   width: auto;
   display: block;
-  margin: 0 0 2rem;
+  margin: 2.5rem auto;
 }
