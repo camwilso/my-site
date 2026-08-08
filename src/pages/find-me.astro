@@ -1,0 +1,26 @@
+---
+import Detail from '../layouts/Detail.astro';
+
+const socials = [
+  { label: 'Twitter', href: 'https://twitter.com/camjwilson' },
+  { label: 'Instagram', href: 'https://instagram.com/cam.wilso' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/camjwilsonn' },
+  { label: 'VSCO', href: 'https://vsco.co/camdub' },
+  { label: 'Email', href: 'mailto:hello@cam-wilson.com' },
+];
+
+const domains = ['Laundromatnearby.com', 'Findalaundromat.com', 'revops-skills.com'];
+---
+
+<Detail title="Find me here" description="Where to find Cam Wilson online.">
+  <div class="lines">
+    {socials.map((s) => <p><a href={s.href}>{s.label}</a></p>)}
+  </div>
+  <hr />
+  <h2>Domains</h2>
+  <p class="muted">
+    {domains.join(' · ')} — currently held by cam-wilson.com.
+    <a href="mailto:hello@cam-wilson.com">Get in touch</a> if interested.
+  </p>
+  <p>This is me 👋 — Cam</p>
+</Detail>

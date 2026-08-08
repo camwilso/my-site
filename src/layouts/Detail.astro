@@ -1,0 +1,19 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  logo?: string;
+  logoAlt?: string;
+}
+
+const { title, description, logo, logoAlt } = Astro.props;
+---
+
+<Base title={`${title} — Cam Wilson`} description={description}>
+  <a href="/" class="back">← Home</a>
+  {logo && <img class="page-logo" src={logo} alt={logoAlt ?? ''} />}
+  <h1>{title}</h1>
+  <slot />
+</Base>

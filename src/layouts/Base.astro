@@ -25,20 +25,8 @@ const { title, description = "Cam Wilson's personal site" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header class="site-header">
-      <a href="/" class="mark" aria-label="Home">
-        <img src="/images/cw-mark.png" alt="CW" />
-      </a>
-      <nav>
-        <a href="/blog">Blog</a>
-        <a href="mailto:hello@cam-wilson.com">Email</a>
-      </nav>
-    </header>
     <main>
       <slot />
     </main>
-    <footer class="site-footer">
-      <p>This is me 👋 — Cam</p>
-    </footer>
   </body>
 </html>

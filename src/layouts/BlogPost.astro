@@ -19,10 +19,16 @@ const formatted = date.toLocaleDateString('en-US', {
 
 <Base title={`${title} — Cam Wilson`} description={description}>
   <article>
-    <p class="muted"><a href="/blog">← Blog</a></p>
-    <h1>{title}</h1>
+    <a href="/blog" class="back">← Blog</a>
+    <h1 class="post-title">{title}</h1>
     <p class="muted">{formatted}</p>
     {image && <img src={image} alt="" />}
     <slot />
   </article>
 </Base>
+
+<style>
+  .post-title {
+    font-size: 2rem;
+  }
+</style>

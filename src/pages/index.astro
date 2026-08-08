@@ -1,126 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
-
-const socials = [
-  { label: 'Twitter', href: 'https://twitter.com/camjwilson' },
-  { label: 'Instagram', href: 'https://instagram.com/cam.wilso' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/camjwilsonn' },
-  { label: 'VSCO', href: 'https://vsco.co/camdub' },
-  { label: 'Email', href: 'mailto:hello@cam-wilson.com' },
-];
-
-const domains = ['Laundromatnearby.com', 'Findalaundromat.com', 'revops-skills.com'];
 ---
 
 <Base title="Cam Wilson">
-  <h1>Hi, I'm Cam — this is my website</h1>
-  <p class="muted">
-    From Milwaukee, WI. Working in New York, NY. Love travel, road trips, and
-    nature. Vertical SaaS RevOps, growth, and 🧽
-  </p>
-
-  <hr />
-
-  <section>
-    <h2>
-      <img class="logo" src="/images/playground.png" alt="Playground" />
-      Currently at Playground
-    </h2>
-    <p>
-      Joined <a href="https://tryplayground.com">Playground</a> in June 2024 to
-      build the RevOps and Marketing teams. Vertical SaaS for child care
-      businesses. Our mission is to make child care accessible to all.
-    </p>
-  </section>
-
-  <section>
-    <h2>
-      <img class="logo" src="/images/cents.png" alt="Cents" />
-      Previously at Cents
-    </h2>
-    <p>
-      Managed the marketing function at <a href="https://trycents.com">Cents</a>,
-      powering our inbound engine. Vertical SaaS for laundromats and dry
-      cleaners. After, I joined Playground.
-    </p>
-  </section>
-
-  <section>
-    <h2>
-      <img class="logo" src="/images/housecall-pro.png" alt="Housecall Pro" />
-      Previously at Housecall Pro
-    </h2>
-    <p>
-      I was on the innovation and growth marketing team at <a
-        href="https://housecallpro.com">Housecall Pro</a>. I joined at the
-      beginning of 2021, and had the chance to take new products to market,
-      conduct product testing, and build and maintain partnerships with top
-      companies in the home services industry. After, I joined Cents.
-    </p>
-  </section>
-
-  <section>
-    <h2>
-      <img class="logo" src="/images/cut-and-care.png" alt="Cut & Care Lawn Services" />
-      Got my start with a landscaping business
-    </h2>
-    <p>
-      In my junior year of high school I started doing small landscaping jobs
-      for side cash while working at a retail store. As the gig developed, I
-      found an opportunity to start a true business in the space. Cut &amp; Care
-      Lawn Services existed to create a personable experience for homeowners in
-      the Southeast Wisconsin area. I started out of my sedan with 0 clients and
-      no contacts. In 2 years, we grew to an impactful and profitable 6-figure
-      business with three employees.
-    </p>
-    <p>
-      This opportunity taught me a new level of accountability and integrity,
-      which ultimately allowed me to forgo college and learn to build startups
-      through experience. For anyone who is young and thinking about starting a
-      business... do it.
-    </p>
-  </section>
-
-  <hr />
-
-  <section>
-    <h2>Read my blog</h2>
-    <p><a href="/blog">Articles</a> — thoughts, quotes, and reflections.</p>
-  </section>
-
-  <section>
-    <h2>Find me here</h2>
-    <p>
-      {socials.map((s, i) => (
-        <>
-          <a href={s.href}>{s.label}</a>{i < socials.length - 1 && ' · '}
-        </>
-      ))}
-    </p>
-  </section>
-
-  <section>
-    <h2>Domains</h2>
-    <p class="muted">
-      {domains.join(' · ')} — currently held by cam-wilson.com.
-      <a href="mailto:hello@cam-wilson.com">Get in touch</a> if interested.
-    </p>
-  </section>
+  <div class="lines">
+    <h1>Cam Wilson</h1>
+    <p>Hi I'm Cam, this is my website</p>
+    <p>I'm from Milwaukee, WI</p>
+    <p>Working in New York, NY</p>
+    <p>Love travel, road trips, and nature</p>
+    <p>Vertical SaaS RevOps, growth, and 🧽</p>
+    <p>Currently at <a href="/playground">Playground</a></p>
+    <p>Previously at <a href="/cents">Cents</a></p>
+    <p>Previously at <a href="/housecall-pro">Housecall Pro</a></p>
+    <p>Got my start with a <a href="/landscaping-business">landscaping business</a></p>
+    <p>Read my <a href="/blog">blog</a></p>
+    <p>Find me <a href="/find-me">here</a></p>
+    <p class="mark"><img src="/images/cw-mark.png" alt="CW" /></p>
+  </div>
 </Base>
-
-<style>
-  section h2 {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-  }
-
-  .logo {
-    height: 1.25rem;
-    width: auto;
-  }
-
-  .logo[alt='Cut & Care Lawn Services'] {
-    height: 1.75rem;
-  }
-</style>
