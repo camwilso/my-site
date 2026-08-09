@@ -25,9 +25,14 @@ In an effort to record messages that resonate with me.
 
 ---
 
-> Nature hides all of its choicest treasures from those who will not make the climb
+> Nature hides all of its choicest treasures from those who will not make the climb.
 
 <mark>John Muir</mark>
+
+---
+> If you look around the room, and you're the smartest person in the room, you're in the wrong room.
+
+<mark>Lorne Michaels</mark>
 
 ---
 
