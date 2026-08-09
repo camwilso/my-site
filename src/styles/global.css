@@ -63,9 +63,12 @@ a:hover {
   display: inline-block;
 }
 
-.lines a:hover,
-.back:hover {
+.lines a:hover {
   transform: translateX(3px);
+}
+
+.back:hover {
+  transform: translateX(-3px);
 }
 
 hr {
@@ -106,6 +109,17 @@ mark {
   display: inline-block;
   margin-bottom: 2rem;
   color: var(--muted);
+  text-decoration: none;
+}
+
+.back svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: block;
+}
+
+.back:hover {
+  color: var(--text);
 }
 
 /* On desktop, park the back link in the left margin so page titles

@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import BackLink from '../components/BackLink.astro';
 
 interface Props {
   title: string;
@@ -19,7 +20,7 @@ const formatted = date.toLocaleDateString('en-US', {
 
 <Base title={`${title} — Cam Wilson`} description={description}>
   <article>
-    <a href="/blog" class="back">← Blog</a>
+    <BackLink href="/blog" label="Back to blog" />
     <h1 class="post-title">{title}</h1>
     <p class="muted">{formatted}</p>
     {image && <img src={image} alt="" />}

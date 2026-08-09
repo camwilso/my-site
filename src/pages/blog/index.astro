@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import BackLink from '../../components/BackLink.astro';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -16,7 +17,7 @@ const fmt = (date: Date) =>
 ---
 
 <Base title="Blog — Cam Wilson" description="Articles by Cam Wilson">
-  <a href="/" class="back">← Home</a>
+  <BackLink />
   <h1>Blog</h1>
   <ul class="posts">
     {
