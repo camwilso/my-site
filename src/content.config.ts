@@ -11,4 +11,12 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const domains = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/domains' }),
+  schema: z.object({
+    domain: z.string(),
+    heldBy: z.string().default('cam-wilson.com'),
+  }),
+});
+
+export const collections = { blog, domains };

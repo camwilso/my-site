@@ -1,0 +1,3 @@
+---
+domain: findalaundromat.com
+---

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const domains = (await getCollection('domains')).sort((a, b) =>
+  a.data.domain.localeCompare(b.data.domain)
+);
+---
+
+<Base title="Domains — Cam Wilson" description="Domains held by cam-wilson.com">
+  <a href="/" class="back">← Home</a>
+  <h1>Domains</h1>
+  <div class="lines">
+    {domains.map((d) => <p><a href={`/domains/${d.id}`}>{d.data.domain}</a></p>)}
+  </div>
+</Base>
