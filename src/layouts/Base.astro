@@ -37,6 +37,18 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta property="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-4YLQWPPQVR"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-4YLQWPPQVR');
+    </script>
   </head>
   <body>
     <main>
