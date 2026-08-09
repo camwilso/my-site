@@ -47,9 +47,13 @@ A session claims a key when it starts and keeps it. Keys get reused only after s
 
 This is deliberately unlike the pad's stock behavior, where the key number is your rank in a live recency sort — so typing in one chat can repaint four other keys. Status you can't trust is worse than no status.
 
-![The menu bar popover showing live sessions](/images/openboard-popover.png)
+![The menu bar popover: four live sessions, two waiting on a permission prompt](/images/openboard-popover.png)
 
 Press an Agent key to jump to that chat. In Terminal it finds the exact tab; in VS Code it reveals the panel already holding that conversation. Nothing is ever *opened* by a jump — an approximate jump beats an unrequested one that rearranges your editor.
+
+The same six states sit in the menu bar, so the board is still readable when the pad's across the room or in a bag.
+
+![The status item — six dots mirroring the pad](/images/openboard-menubar.png)
 
 ## How I built it
 
@@ -73,17 +77,19 @@ The app itself is Swift, a plain SwiftPM package with no runtime dependencies. T
 
 I didn't want to ship six opinions welded shut. My defaults are a starting point, and the settings window opens up nearly all of it.
 
-![OpenBoard settings, mapping what each key does](/images/openboard-settings.png)
-
 **The colors.** Every state — idle, working, awaiting, stalled, done, error — takes its own color, effect, brightness and speed. These are hardware colors: the swatch and the LED are the same number, so the editor offers the real presets and any hex besides, and deliberately not the system color picker, whose output is a screen color that only happens to look close.
 
 **How long a color stays.** Done holding until you come back is the default, not the law. Give it a decay in seconds if you'd rather it fade, or leave it holding.
 
-**The ring.** Which events fire a lap, in what color, at what speed — or none, if a dark ring is what you want.
+**The ring.** Which events fire a lap, in what color, at what speed — or none, if a dark ring is what you want. Ten built-in shows live on the same pane.
+
+![Settings → Colors: the ring laps and the built-in shows](/images/openboard-shows.png)
 
 **Every non-agent key.** Seven action keys, and 21 actions to put on them: approve the pending prompt with ⏎, reject with ⎋, type a snippet at the cursor, open a new Terminal tab, dictate by tap or hold or toggle, jump a tab forward or back, jump to the session on the next or previous occupied key, open the menu, open Settings, repaint the board, forget all sessions, everything off, the four arrows, and fun mode.
 
 A good half of those aren't things a key remapper can hand you, whatever software you point at the pad. A remap sends a keystroke wherever focus happens to be. Approve has to know *which session is asking*, find that window — the exact Terminal tab, or the VS Code panel holding that conversation — and refuse to answer at all if it can't confirm what's in front of you. Same with jumping to the next occupied key: that's a fact about the board's state, not a keyboard event. Those actions only exist because something is already tracking sessions.
+
+![Settings → Board: a key selected, with its action and the keycap picker](/images/openboard-settings.png)
 
 Adding another is genuinely small. `KeyAction` is a string enum: add a case, give it a short label and a long one, and write what it does. The settings picker builds itself from `allCases`, so a new action shows up in the UI on the next build with no wiring. There's no plugin system and no config DSL — on purpose, since 21 actions is a list you read, not a language you learn. If a few more arrive and the flat picker starts to sag, it can grow groups or search. That's a UI problem, and a cheap one, which is the right kind of problem to leave until it's real.
 
@@ -108,6 +114,14 @@ It's MIT. Clone it and `mac/tools/bootstrap.sh` builds it — you don't need an 
 ```sh
 brew install --cask camwilso/tap/openboard
 ```
+
+Open it and it walks you through the rest — permissions, key order, and the Claude Code hooks. It's a checklist rather than a wizard, because two of those only take effect after OpenBoard restarts. Stop and come back whenever; it works out what's left each time.
+
+![Guided setup, three of five steps complete](/images/openboard-setup.png)
+
+Each permission gets named for what it's actually for — Input Monitoring reads the pad, Accessibility types the ⏎ and the snippets — because they're granted separately and each one missing produces a differently shaped silent failure.
+
+![Settings → Device: permissions and version](/images/openboard-device.png)
 
 Fair warning: it rides a private HID command that can change with any ChatGPT, Work Louder, or firmware update. It's unofficial and experimental, and it isn't affiliated with or endorsed by OpenAI, Anthropic, or Work Louder.
 
