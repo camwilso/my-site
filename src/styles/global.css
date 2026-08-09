@@ -82,6 +82,47 @@ img {
   height: auto;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+  display: block;
+  overflow-x: auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+pre {
+  background: #f6f6f6;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+code {
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  background: #f6f6f6;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+article img {
+  display: block;
+  margin: 2rem 0;
+}
+
 blockquote {
   margin: 1.5rem 0 0.5rem;
   padding-left: 1rem;
@@ -101,6 +142,16 @@ mark {
 
 /* Homepage line list */
 .lines p {
+  margin: 0 0 1.125rem;
+}
+
+/* Homepage projects list */
+.projects {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.projects li {
   margin: 0 0 1.125rem;
 }
 
