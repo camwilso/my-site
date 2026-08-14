@@ -2,6 +2,7 @@
 title: How I built OpenBoard to use Codex Micro with Claude and other agents
 description: The Codex Micro ships wired to one vendor's agent. OpenBoard is a free, open-source Mac app that lets you use a Codex Micro with Claude and other agents instead. Here's why I built it, and how it works.
 date: 2026-08-09
+updated: 2026-08-14
 image: /images/openboard-hero.jpg
 ---
 
@@ -9,7 +10,7 @@ I bought a Work Louder Codex Micro because hardware for your agents seemed like 
 
 That's a car that only drives on one road. The hardware is fine. The LEDs are just LEDs. But the pad shipped with OpenAI's name on it and OpenAI's agent behind it, and if you run Claude Code — which I do, most of the day — you own a very expensive set of keys that light up for somebody else's sessions.
 
-So I wrote [OpenBoard](https://openboardapp.com). It's a free Mac app that lets you use a Codex Micro with Claude and other agents — it points the same LEDs at Claude Code instead. The pad stays stock: no reflash, no remap, no firmware of mine. It's MIT licensed and the whole thing is on [GitHub](https://github.com/camwilso/openboard).
+So I wrote [OpenBoard](https://openboardapp.com). It's a free Mac app that lets you use a Codex Micro with Claude and other agents — it points the same LEDs at Claude Code instead. The pad stays stock: no reflash, no remap, no firmware of mine. And nothing else needs to be installed: not the ChatGPT app, not Work Louder's Input app. OpenBoard talks to the pad directly. It's MIT licensed and the whole thing is on [GitHub](https://github.com/camwilso/openboard).
 
 ## The problem worth solving
 

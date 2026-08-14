@@ -6,23 +6,48 @@ interface Props {
   title: string;
   description: string;
   date: Date;
+  updated?: Date;
+  author: string;
   image?: string;
 }
 
-const { title, description, date, image } = Astro.props;
-const formatted = date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-  timeZone: 'UTC',
-});
+const { title, description, date, updated, author, image } = Astro.props;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+
+// Only worth showing when it says something the published date doesn't
+const showUpdated = updated && iso(updated) !== iso(date);
 ---
 
-<Base title={`${title} — Cam Wilson`} description={description} image={image}>
+<Base
+  title={`${title} — Cam Wilson`}
+  description={description}
+  image={image}
+  author={author}
+  published={date}
+  modified={showUpdated ? updated : undefined}
+>
   <article>
     <BackLink href="/blog" label="Back to blog" />
     <h1 class="post-title">{title}</h1>
-    <p class="muted">{formatted}</p>
+    <p class="muted byline">
+      {author} · <time datetime={iso(date)}>{fmt(date)}</time>
+      {
+        showUpdated && (
+          <>
+            {' · '}Updated <time datetime={iso(updated!)}>{fmt(updated!)}</time>
+          </>
+        )
+      }
+    </p>
     {image && <img src={image} alt="" />}
     <slot />
   </article>
@@ -31,5 +56,9 @@ const formatted = date.toLocaleDateString('en-US', {
 <style>
   .post-title {
     font-size: 2rem;
+  }
+
+  .byline {
+    font-size: 0.9375rem;
   }
 </style>

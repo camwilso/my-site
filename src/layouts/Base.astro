@@ -5,12 +5,18 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  author?: string;
+  published?: Date;
+  modified?: Date;
 }
 
 const {
   title = 'cam wilson',
   description = 'cam wilson | new york, ny 2024',
   image,
+  author,
+  published,
+  modified,
 } = Astro.props;
 
 const ogImage = image ? new URL(image, Astro.site).href : undefined;
@@ -33,7 +39,10 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={published ? 'article' : 'website'} />
+    {author && <meta name="author" content={author} />}
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta property="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
