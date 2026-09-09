@@ -6,7 +6,7 @@ date: 2026-09-09
 
 I gave a talk to Chili Piper called *Better discovery before the demo*. The pitch was one slide long: your demo form is doing almost no work, and the fix is not a longer form.
 
-The last slide promised two code snippets. This is that slide, expanded.
+These are the accompanying code snippets to get it working.
 
 ## The problem
 
